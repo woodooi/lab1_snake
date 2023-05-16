@@ -1,13 +1,21 @@
+# pylint: disable = invalid-name, too-many-instance-attributes
+"""
+This module contains SchoolPen class and
+"""
+
+
 class SchoolPen:
     """
     This class represents school pen, which contains pens, pencils, erasers.
     Class methods provide adding/removing items to and from the pen,
     and creating a unique instance of the class.
     """
+    __instance = None
 
-    def __init__(self, id="isn-101", brand="", color="", material="",
+# pylint: disable = too-many-arguments
+    def __init__(self, id_="isn-101", brand="", color="", material="",
                  size=0.0, num_pencils=0, num_pens=0, num_erasers=0):
-        self.id = id
+        self.id_ = id_
         self.brand = brand
         self.color = color
         self.material = material
@@ -16,12 +24,21 @@ class SchoolPen:
         self.num_pens = num_pens
         self.num_erasers = num_erasers
 
-    @staticmethod
-    def get_instance():
+    @classmethod
+    def get_instance(cls):
         """
         returns an instance of a class
         """
-        return SchoolPen()
+        if cls.__instance is None:
+            cls.__instance = SchoolPen()
+        return cls.__instance
+
+    @staticmethod
+    def print_hello():
+        """
+        prints "Hello"
+        """
+        print("Hello")
 
     def add_pencil(self):
         """
@@ -39,7 +56,7 @@ class SchoolPen:
         """
         increases num_erasers by 1
         """
-        self.num_erasers +=1
+        self.num_erasers += 1
 
     def remove_pencil(self):
         """
@@ -75,11 +92,19 @@ class SchoolPen:
         """
         returns an object in string
         """
-        return f"SchoolPen(id='{self.id}', brand='{self.brand}', color='{self.color}'," \
+        return f" SchoolPen(id='{self.id_}', brand='{self.brand}', color='{self.color}'," \
                f" material='{self.material}', size={self.size}, num_pencils={self.num_pencils}," \
-              f" num_pens={self.num_pens}, num_erasers={self.num_erasers})"
+               f" num_pens={self.num_pens}, num_erasers={self.num_erasers})"
 
 
-pen = SchoolPen("a1", "Mercedes", "purple", "wood", 23.8, 2, 4, 5)
-print(str(pen) + "\n" + str(SchoolPen.get_instance()))
+if __name__ == '__main__':
+    pen = SchoolPen("a1", "Mercedes", "purple", "wood", 23.8, 2, 4, 5)
+    print(str(pen) + "\n" + str(SchoolPen.get_instance()))
+    SchoolPen.print_hello()
 
+i = 0
+list_50 = []
+while i < 51:
+    list_50.append(i)
+    i += 1
+print(list_50[:25:-1])
