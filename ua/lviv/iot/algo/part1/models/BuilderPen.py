@@ -23,6 +23,6 @@ class BuilderPen(Pen):
              + self.num_screwdrivers * self.SCREW_PRICE
 
     def __str__(self):
-        return super().__str__() + \
-               f"Rulers:'{self.num_rulers}', Screwdrivers:'{self.num_screwdrivers}'"
+        return "BuilderPen(" + super().__str__() + \
+               f" Rulers:'{self.num_rulers}', Screwdrivers:'{self.num_screwdrivers}')"
 

@@ -6,7 +6,7 @@ from ua.lviv.iot.algo.part1.models.Pen import Pen
 
 class MarkerPen(Pen):
     """
-
+    Class describers a pen for markers
     """
     MARKER_PRICE = 3
 
@@ -20,6 +20,8 @@ class MarkerPen(Pen):
         return self.num_markers * self.MARKER_PRICE
 
     def __str__(self):
-        return super().__str__() + \
-               f" Markers:'{self.num_markers}', Pockets:'{self.has_pockets}'"
-
+        """
+        c
+        """
+        return "MarkerPen(" + super().__str__() + \
+               f" Markers:'{self.num_markers}', Pockets:'{self.has_pockets}')"

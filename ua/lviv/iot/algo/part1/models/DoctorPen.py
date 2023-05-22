@@ -25,5 +25,5 @@ class DoctorPen(Pen):
             return self.num_syringes * self.SYRINGE_PRICE
 
     def __str__(self):
-        return super().__str__() + \
-            f"Syringes:'{self.num_syringes}', Stethoscope:'{self.has_stethoscope}'"
+        return "DoctorPen(" + super().__str__() + \
+               f" Syringes:'{self.num_syringes}', Stethoscope:'{self.has_stethoscope}')"
