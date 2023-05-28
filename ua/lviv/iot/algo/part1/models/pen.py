@@ -28,7 +28,7 @@ class Pen(ABC):
         return f"ID:'{self.id_}', Color:'{self.color}', Size:'{self.size}'"
 
     def add_pen(self, pen):
+        """
+        adds a pen object to pen_storage
+        """
         self.pen_storage.append(pen)
-
-
-

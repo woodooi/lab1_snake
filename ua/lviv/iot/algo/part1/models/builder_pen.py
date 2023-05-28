@@ -6,7 +6,7 @@ from ua.lviv.iot.algo.part1.models.Pen import Pen
 
 class BuilderPen(Pen):
     """
-
+    Describes a builder pen class
     """
 
     SCREW_PRICE = 5
@@ -19,10 +19,12 @@ class BuilderPen(Pen):
         super().__init__(id_, color, size)
 
     def calculate_price(self):
+        """
+        :return: num rulers + num screwdrivers, multiplied by corresponding prices
+        """
         return self.num_rulers * self.SCREW_PRICE \
              + self.num_screwdrivers * self.SCREW_PRICE
 
     def __str__(self):
         return "BuilderPen(" + super().__str__() + \
                f" Rulers:'{self.num_rulers}', Screwdrivers:'{self.num_screwdrivers}')"
-

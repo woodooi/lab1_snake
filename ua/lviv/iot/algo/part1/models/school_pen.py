@@ -34,6 +34,9 @@ class SchoolPen(Pen):
         return cls.__instance
 
     def calculate_price(self):
+        """
+        :return: num pens, num pencils and num erasers, multiplied by corresponding prices
+        """
         return self.num_erasers * self.ERASER_PRICE \
              + self.num_pens * self.PEN_PRICE \
              + self.num_pencils * self.PENCIL_PRICE

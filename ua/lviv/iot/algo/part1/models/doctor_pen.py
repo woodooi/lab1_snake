@@ -6,7 +6,7 @@ from ua.lviv.iot.algo.part1.models.Pen import Pen
 
 class DoctorPen(Pen):
     """
-
+    Describes a doctor pen class
     """
     SYRINGE_PRICE = 4
     STETHO_PRICE = 10
@@ -18,6 +18,9 @@ class DoctorPen(Pen):
         super().__init__(id_, color, size)
 
     def calculate_price(self):
+        """
+        :return: num syringes, multiplied by its price + stethoscope price, if there is one in the pen.
+        """
         if self.has_stethoscope:
             return self.num_syringes * self.SYRINGE_PRICE \
                  + self.STETHO_PRICE

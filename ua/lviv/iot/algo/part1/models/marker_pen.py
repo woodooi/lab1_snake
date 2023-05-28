@@ -17,11 +17,11 @@ class MarkerPen(Pen):
         super().__init__(id_, color, size)
 
     def calculate_price(self):
+        """
+        :return: num_markers multiplied by its price
+        """
         return self.num_markers * self.MARKER_PRICE
 
     def __str__(self):
-        """
-        c
-        """
         return "MarkerPen(" + super().__str__() + \
                f" Markers:'{self.num_markers}', Pockets:'{self.has_pockets}')"
