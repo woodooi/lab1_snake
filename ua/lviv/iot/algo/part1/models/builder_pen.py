@@ -1,14 +1,13 @@
 """
 Contains BuilderPen class
 """
-from ua.lviv.iot.algo.part1.models.Pen import Pen
+from ua.lviv.iot.algo.part1.models.pen import Pen
 
 
 class BuilderPen(Pen):
     """
     Describes a builder pen class
     """
-
     SCREW_PRICE = 5
     RULER_PRICE = 3
 
@@ -23,7 +22,7 @@ class BuilderPen(Pen):
         :return: num rulers + num screwdrivers, multiplied by corresponding prices
         """
         return self.num_rulers * self.SCREW_PRICE \
-             + self.num_screwdrivers * self.SCREW_PRICE
+            + self.num_screwdrivers * self.SCREW_PRICE
 
     def __str__(self):
         return "BuilderPen(" + super().__str__() + \

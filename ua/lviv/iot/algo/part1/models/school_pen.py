@@ -2,7 +2,7 @@
 """
 Contains SchoolPen class
 """
-from ua.lviv.iot.algo.part1.models.Pen import Pen
+from ua.lviv.iot.algo.part1.models.pen import Pen
 
 
 class SchoolPen(Pen):

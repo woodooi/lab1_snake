@@ -1,7 +1,7 @@
+from ua.lviv.iot.algo.part1.models.pen import Pen
 """
 Contains MarkerPen class
 """
-from ua.lviv.iot.algo.part1.models.Pen import Pen
 
 
 class MarkerPen(Pen):

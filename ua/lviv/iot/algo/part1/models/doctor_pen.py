@@ -1,7 +1,7 @@
 """
 Contains DoctorPen class
 """
-from ua.lviv.iot.algo.part1.models.Pen import Pen
+from ua.lviv.iot.algo.part1.models.pen import Pen
 
 
 class DoctorPen(Pen):
@@ -22,10 +22,11 @@ class DoctorPen(Pen):
         :return: num syringes, multiplied by its price + stethoscope price, if there is one in the pen.
         """
         if self.has_stethoscope:
-            return self.num_syringes * self.SYRINGE_PRICE \
+            price = self.num_syringes * self.SYRINGE_PRICE \
                  + self.STETHO_PRICE
         else:
-            return self.num_syringes * self.SYRINGE_PRICE
+            price = self.num_syringes * self.SYRINGE_PRICE
+        return price
 
     def __str__(self):
         return "DoctorPen(" + super().__str__() + \
