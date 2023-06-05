@@ -9,6 +9,7 @@ class MarkerPen(Pen):
     Class describers a pen for markers
     """
     MARKER_PRICE = 3
+    top_models = ["Purple", "Molberd"]
 
     def __init__(self, id_="isn=101", color="", size=0.0,
                  markers=0, pockets=bool):

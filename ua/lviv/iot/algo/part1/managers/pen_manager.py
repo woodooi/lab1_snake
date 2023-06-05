@@ -2,6 +2,9 @@
 """
 Contains PenManager class
 """
+import time
+
+from ua.lviv.iot.algo.part1.decorators import timer, iterator_to_tuple
 
 
 class PenManager:
@@ -20,14 +23,14 @@ class PenManager:
         __iter__ overwriting
         :return: self
         """
-        return self
+        return iter(self.pen_storage)
 
     def __next__(self):
         """
         __next__ overwriting
         :return: item with corresponding index
         """
-        if self.index >= len(self):
+        if self.index == len(self):
             raise StopIteration
         item = self[self.index]
         self.index += 1
@@ -39,7 +42,10 @@ class PenManager:
         :param item:
         :return: pen_storage[item]
         """
-        return self.pen_storage[item]
+        try:
+            return self.pen_storage[item]
+        except IndexError:
+            print("No such element exist")
 
     def __len__(self):
         """
@@ -49,6 +55,7 @@ class PenManager:
         return len(self.pen_storage)
 
     @classmethod
+    @iterator_to_tuple
     def price_list(cls):
         """
         executes method calculate_price for every pen in the pen_storage
@@ -86,7 +93,12 @@ class PenManager:
                 return str(name), pen.calculate_price()
 
     @classmethod
+    @timer
     def if_has_id(cls):
+        """
+        :return: dictionary for any and all funcs with corresponding results
+        """
+        time.sleep(2)
         id_list = []
         bool_list = []
         for pen in cls.pen_storage:
@@ -96,6 +108,7 @@ class PenManager:
         return {'any': any(bool_list), 'all': all(bool_list)}
 
     @classmethod
+    @timer
     def find_all_bigger_than(cls, size):
         """
         :param size:

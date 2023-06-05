@@ -10,6 +10,7 @@ class DoctorPen(Pen):
     """
     SYRINGE_PRICE = 4
     STETHO_PRICE = 10
+    top_models = ["Domestos", "Caries"]
 
     def __init__(self, id_="isn-101", color="", size=0.0,
                  syringes=0, stethoscope=bool):

@@ -1,4 +1,5 @@
 from ua.lviv.iot.algo.part1.managers.pen_manager import PenManager
+from ua.lviv.iot.algo.part1.managers.set_manager import SetManager
 from ua.lviv.iot.algo.part1.models.builder_pen import BuilderPen
 from ua.lviv.iot.algo.part1.models.doctor_pen import DoctorPen
 from ua.lviv.iot.algo.part1.models.marker_pen import MarkerPen
@@ -14,7 +15,7 @@ if __name__ == '__main__':
     print("All the pens are on the table:"
           + "\n---------------------")
     for x in pen_manager:
-        print(str(x))
+        print(x)
     print("---------------------")
 
     print("\nPrinting out pens worth more than 10 UAH"
@@ -27,11 +28,22 @@ if __name__ == '__main__':
     pen_manager.find_all_bigger_than(25)
     print("---------------------")
     prices_ = pen_manager.price_list()
+    print(type(prices_))
     for x in prices_:
         print(x)
     print(pen_manager.pen_with_index(school))
+    print("\n")
     print(pen_manager.pen_with_price(school))
+    print("\n")
     print(school.attributes_by_type(str))
+    print("\n")
     print(pen_manager.if_has_id())
+    print("\n")
     print(pen_manager[1])
-
+    print("\n")
+    setter = SetManager(pen_manager)
+    for x in setter:
+        print(x)
+    print("\n")
+    name = pen_manager.price_list.__name__
+    print(name + pen_manager.price_list.__doc__)

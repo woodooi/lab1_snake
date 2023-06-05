@@ -15,6 +15,7 @@ class SchoolPen(Pen):
     PEN_PRICE = 2
     PENCIL_PRICE = 1
     ERASER_PRICE = 6
+    top_models = ["Gymnasium", "Garden"]
 
     # pylint: disable = too-many-arguments
     def __init__(self, id_="isn-101", color="", size=0.0,

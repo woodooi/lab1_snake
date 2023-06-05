@@ -9,6 +9,7 @@ class Pen(ABC):
     Pen is a father class for all classes in the "lab1_unique" project.
     (except the PenManager class)
     """
+    top_models = []
 
     def __init__(self, id_="isn-101", color="", size=0.0):
         self.color = color

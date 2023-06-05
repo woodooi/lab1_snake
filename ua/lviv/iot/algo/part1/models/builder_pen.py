@@ -10,8 +10,9 @@ class BuilderPen(Pen):
     """
     SCREW_PRICE = 5
     RULER_PRICE = 3
+    top_models = ["Brick", "Ruler"]
 
-    def __init__(self, id_="isn-101", color="", size=0.0,
+    def __init__(self, id_="", color="", size=0.0,
                  rulers=0, screwdrivers=0):
         self.num_rulers = rulers
         self.num_screwdrivers = screwdrivers
