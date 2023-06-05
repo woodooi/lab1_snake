@@ -47,3 +47,6 @@ if __name__ == '__main__':
     print("\n")
     name = pen_manager.price_list.__name__
     print(name + pen_manager.price_list.__doc__)
+    empty_marker = MarkerPen("", "", 0, 0, False)
+    SchoolPen.get_instance().remove_pen()
+    empty_marker.remove_marker()

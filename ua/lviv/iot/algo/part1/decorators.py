@@ -1,6 +1,7 @@
 """
 Contains decorator realisations
 """
+import logging
 import time
 from functools import wraps
 
@@ -23,3 +24,22 @@ def iterator_to_tuple(func):
         return result
 
     return wrapper
+
+
+def logged(custom_exception, mode):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            try:
+                result = func(*args, **kwargs)
+                return result
+            except custom_exception as ex:
+                if mode == "console":
+                    logging.basicConfig(format="%(asctime)s - %(message)s)")
+                    logging.error(str(ex))
+                elif mode == "file":
+                    logging.basicConfig(filename="log.log", filemode="w", format="%(asctime)s - %(message)s")
+                    logging.error(str(ex))
+                else:
+                    raise ValueError("Incorrect mode value: mode can be \"console\" or \"file\"")
+        return wrapper
+    return decorator

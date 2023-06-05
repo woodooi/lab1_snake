@@ -2,7 +2,9 @@
 """
 Contains SchoolPen class
 """
+from ua.lviv.iot.algo.part1.decorators import logged
 from ua.lviv.iot.algo.part1.models.pen import Pen
+from ua.lviv.iot.algo.part1.my_exception import ZeroItemsError
 
 
 class SchoolPen(Pen):
@@ -33,6 +35,13 @@ class SchoolPen(Pen):
         if cls.__instance is None:
             cls.__instance = SchoolPen()
         return cls.__instance
+
+    @logged(ZeroItemsError, "console")
+    def remove_pen(self):
+        if self.num_pens == 0:
+            raise ZeroItemsError(type(self))
+        else:
+            self.num_pens -= 1
 
     def calculate_price(self):
         """
